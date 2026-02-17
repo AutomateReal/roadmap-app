@@ -1,10 +1,12 @@
 {
     "john-smith-acme-cleaning": {
         "FULL_NAME": "John Smith",
+        "EMAIL": "john@example.com",
         "FIRST_NAME": "John",
+        "LAST_NAME": "Smith",
         "COMPANY_NAME": "Acme Cleaning Services",
         "GBP_SCORE": "45",
-        "REVIEW_COUNT": "12",
+        "REVIEW_COUNT": "11",
         "AI_VISIBILITY": "Not Found",
         "MAPS_RANK": "#14",
         "POST_COUNT": "0",
@@ -20,6 +22,7 @@
         "COMP3_REVIEWS": "210",
         "COMP3_RANK": "#2",
         "COMP3_POSTS": "6",
-        "CITY": "Colorado Springs"
+        "CITY": "Colorado Springs",
+        "HAS_SCREENSHOT": true
     }
 }

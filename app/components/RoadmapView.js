@@ -2,14 +2,19 @@
 
 import { useEffect } from 'react';
 
-export default function RoadmapView({ data }) {
+export default function RoadmapView({ data, slug }) {
     // Ensuring LAST_NAME exists in data structure if not passed, or handling it gracefully in display
 
 
     // Optional: Scroll to top on load or handle interactions
     useEffect(() => {
-        // Any tracking logic for page view is handled by GA automatically via layout
-    }, []);
+        // Trigger GHL Webhook via API Route
+        fetch('/api/tracking/page-open', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ slug, data })
+        }).catch(err => console.error('GHL Tracking failed:', err));
+    }, [slug, data]);
 
     return (
         <div className="roadmap-container">
@@ -71,11 +76,26 @@ export default function RoadmapView({ data }) {
                     </div>
                 </div>
 
-                {/* Heatmap Screenshot Placeholder */}
-                <div className="screenshot-placeholder">
-                    <div className="screenshot-placeholder-icon">🗺️</div>
-                    <div className="screenshot-placeholder-text">INSERT: Google Maps Ranking Heatmap Screenshot</div>
-                    <div className="screenshot-placeholder-sub">Paste a screenshot from the audit tool showing their local ranking heatmap here</div>
+                {/* Heatmap Screenshot */}
+                <div className="screenshot-container">
+                    {data.HAS_SCREENSHOT ? (
+                        <div className="screenshot-wrapper">
+                            <img
+                                src={`/screenshots/${slug}.bmp`}
+                                alt="Local Ranking Heatmap"
+                                style={{ width: '100%', borderRadius: '12px', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}
+                            />
+                            <div className="screenshot-caption text-center" style={{ marginTop: '10px', fontSize: '0.9rem', color: '#666' }}>
+                                🗺️ Live Local Ranking Heatmap for {data.COMPANY_NAME}
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="screenshot-placeholder">
+                            <div className="screenshot-placeholder-icon">🗺️</div>
+                            <div className="screenshot-placeholder-text">INSERT: Google Maps Ranking Heatmap Screenshot</div>
+                            <div className="screenshot-placeholder-sub">Paste a screenshot from the audit tool showing their local ranking heatmap here</div>
+                        </div>
+                    )}
                 </div>
 
                 {/* Competitor Comparison */}

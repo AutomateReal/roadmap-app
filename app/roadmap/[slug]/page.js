@@ -26,5 +26,5 @@ export default async function RoadmapPage({ params }) {
         notFound();
     }
 
-    return <RoadmapView data={lead} />;
+    return <RoadmapView data={lead} slug={slug} />;
 }
