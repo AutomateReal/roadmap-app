@@ -1,0 +1,25 @@
+{
+    "john-smith-acme-cleaning": {
+        "FULL_NAME": "John Smith",
+        "FIRST_NAME": "John",
+        "COMPANY_NAME": "Acme Cleaning Services",
+        "GBP_SCORE": "45",
+        "REVIEW_COUNT": "12",
+        "AI_VISIBILITY": "Not Found",
+        "MAPS_RANK": "#14",
+        "POST_COUNT": "0",
+        "COMPETITOR_1": "Sparkle Pros",
+        "COMP1_REVIEWS": "142",
+        "COMP1_RANK": "#1",
+        "COMP1_POSTS": "4",
+        "COMPETITOR_2": "CleanGenius",
+        "COMP2_REVIEWS": "89",
+        "COMP2_RANK": "#3",
+        "COMP2_POSTS": "2",
+        "COMPETITOR_3": "Office Shine",
+        "COMP3_REVIEWS": "210",
+        "COMP3_RANK": "#2",
+        "COMP3_POSTS": "6",
+        "CITY": "Colorado Springs"
+    }
+}
