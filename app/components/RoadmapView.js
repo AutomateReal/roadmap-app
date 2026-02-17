@@ -79,13 +79,13 @@ export default function RoadmapView({ data, slug }) {
                 {/* Heatmap Screenshot */}
                 <div className="screenshot-container">
                     {data.HAS_SCREENSHOT ? (
-                        <div className="screenshot-wrapper" style={{ maxHeight: '450px', overflow: 'hidden', borderRadius: '12px', boxShadow: '0 4px 20px rgba(0,0,0,0.1)', position: 'relative' }}>
+                        <div className="screenshot-wrapper">
                             <img
                                 src={`/screenshots/${slug}.bmp?t=${data.HAS_SCREENSHOT}`}
                                 alt="Local Ranking Heatmap"
-                                style={{ width: '100%', height: 'auto', display: 'block' }}
+                                style={{ width: '100%', borderRadius: '12px', boxShadow: '0 4px 20px rgba(0,0,0,0.1)' }}
                             />
-                            <div className="screenshot-caption text-center" style={{ backgroundColor: 'rgba(255,255,255,0.9)', padding: '8px', position: 'absolute', bottom: 0, width: '100%', fontSize: '0.9rem', color: '#666', borderTop: '1px solid #eee' }}>
+                            <div className="screenshot-caption text-center" style={{ marginTop: '10px', fontSize: '0.9rem', color: '#666' }}>
                                 🗺️ Live Local Ranking Heatmap for {data.COMPANY_NAME}
                             </div>
                         </div>
