@@ -16,13 +16,18 @@ export async function POST(request) {
             event: 'roadmap_opened',
             timestamp: new Date().toISOString(),
             lead_slug: slug,
-            email: data.EMAIL,
+            email: data.EMAIL || `no-email-${slug}@example.com`,
             full_name: data.FULL_NAME || `${data.FIRST_NAME} ${data.LAST_NAME || ''}`.trim(),
             first_name: data.FIRST_NAME,
             last_name: data.LAST_NAME,
             company: data.COMPANY_NAME,
             city: data.CITY,
-            roadmap_url: `${process.env.NEXT_PUBLIC_BASE_URL || ''}/roadmap/${slug}`
+            roadmap_url: `${process.env.NEXT_PUBLIC_BASE_URL || ''}/roadmap/${slug}`,
+            metadata: {
+                source: 'Roadmap App',
+                attribution: 'Personalized Lead Magnet',
+                lead_data_present: !!data.EMAIL
+            }
         };
 
         const response = await fetch(webhookUrl, {

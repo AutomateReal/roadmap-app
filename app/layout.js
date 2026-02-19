@@ -1,5 +1,6 @@
 import './globals.css';
 import GoogleAnalytics from './components/GoogleAnalytics';
+import GHLTracking from './components/GHLTracking';
 
 export const metadata = {
   title: 'Your Personalized 30-Day Growth Roadmap',
@@ -11,6 +12,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <GoogleAnalytics GA_MEASUREMENT_ID="G-5WC5GZMJZN" />
+        <GHLTracking />
       </head>
       <body>
         {children}
