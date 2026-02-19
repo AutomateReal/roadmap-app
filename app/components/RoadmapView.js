@@ -32,6 +32,21 @@ export default function RoadmapView({ data, slug }) {
                     <p className="cover-subtitle">
                         A personalized roadmap for <span className="cover-company">{data.COMPANY_NAME}</span> to capture more high-value cleaning contracts through local search visibility.
                     </p>
+                    {data.MISSION_STATEMENT && (
+                        <div className="cover-mission" style={{
+                            marginTop: '30px',
+                            padding: '20px',
+                            backgroundColor: 'rgba(0, 112, 243, 0.05)',
+                            borderLeft: '4px solid #0070f3',
+                            borderRadius: '0 8px 8px 0',
+                            fontStyle: 'italic',
+                            color: '#333',
+                            fontSize: '1.1rem',
+                            lineHeight: '1.6'
+                        }}>
+                            "{data.MISSION_STATEMENT}"
+                        </div>
+                    )}
                 </div>
 
                 <div className="cover-footer">
