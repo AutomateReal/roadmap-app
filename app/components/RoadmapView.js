@@ -16,6 +16,84 @@ export default function RoadmapView({ data, slug }) {
         }).catch(err => console.error('GHL Tracking failed:', err));
     }, [slug, data]);
 
+    const DEFAULT_TASKS = {
+        W1: {
+            title: 'Foundation & Quick Wins',
+            subtitle: 'Days 1–7 - Fix the basics that are killing your rankings',
+            tasks: [
+                { id: 'opt-gbp', name: 'Optimize Google Business Profile', desc: 'Complete all fields: services, areas, hours, attributes. Add cleaning-specific categories.', impact: 'high' },
+                { id: 'photos', name: 'Upload 10+ Professional Photos', desc: 'Before/after shots, team photos, equipment. Businesses with 100+ photos get 520% more calls.', impact: 'high' },
+                { id: 'reviews-resp', name: 'Respond to All Existing Reviews', desc: 'Reply to every review (positive and negative) within 48 hours. Google rewards engagement.', impact: 'medium' },
+                { id: 'nap', name: 'Fix NAP Consistency', desc: 'Ensure your Name, Address, Phone are identical across Google, Yelp, Facebook, and all directories.', impact: 'high' }
+            ]
+        },
+        W2: {
+            title: 'Content & Review Engine',
+            subtitle: 'Days 8–14 - Build the systems that compound over time',
+            tasks: [
+                { id: 'review-sys', name: 'Launch a Review Request System', desc: 'Automate review requests after every completed job. Target: 5-10 new reviews per month minimum.', impact: 'high' },
+                { id: 'posts', name: 'Start Publishing Weekly Google Posts', desc: 'Share tips, before/afters, testimonials. 3-4 posts per week signals an active business to Google.', impact: 'high' },
+                { id: 'service-pages', name: 'Add Service-Area Pages to Website', desc: 'Create dedicated pages for each city/neighborhood you serve. Targets long-tail local keywords.', impact: 'medium' }
+            ]
+        },
+        W3: {
+            title: 'AI Search & Multi-Platform Visibility',
+            subtitle: 'Days 15–21 - Get found where your competitors aren\'t looking yet',
+            tasks: [
+                { id: 'ai-opt', name: 'Optimize for AI Search Platforms', desc: 'Structure your website and GBP so ChatGPT, Gemini, and Perplexity recommend your business.', impact: 'high' },
+                { id: 'citations', name: 'Build Citation Network', desc: 'Submit to 40+ high-authority directories (BBB, Yelp, industry-specific portfolios for both residential and commercial).', impact: 'medium' },
+                { id: 'schema', name: 'Add Schema Markup to Website', desc: 'Add LocalBusiness structured data so search engines understand your services, areas, and reviews.', impact: 'medium' }
+            ]
+        },
+        W4: {
+            title: 'Measure, Optimize & Scale',
+            subtitle: 'Days 22–30 - Lock in your gains and plan for month 2',
+            tasks: [
+                { id: 'audit', name: 'Run a New Ranking Audit', desc: 'Compare your heatmap and keyword rankings to Day 1. Document improvements.', impact: 'medium' },
+                { id: 'keywords', name: 'Analyze Which Keywords Moved', desc: 'Double down on the keywords gaining traction. Identify new opportunities.', impact: 'high' },
+                { id: 'automation', name: 'Set Up Ongoing Automation', desc: 'Automate posts, review monitoring, and reporting so your visibility compounds on autopilot.', impact: 'high' }
+            ]
+        }
+    };
+
+    // Merge overrides
+    const roadmapData = JSON.parse(JSON.stringify(DEFAULT_TASKS)); // Deep clone
+    const overrides = data.ROADMAP_OVERRIDE || {};
+    const doneTasks = overrides.DONE_TASKS || [];
+    const taskOverrides = overrides.TASK_OVERRIDES || {};
+
+    Object.keys(roadmapData).forEach(week => {
+        roadmapData[week].tasks = roadmapData[week].tasks.map(task => {
+            const isDone = doneTasks.includes(task.name);
+            const override = taskOverrides[task.name] || {};
+            return {
+                ...task,
+                ...override,
+                isDone
+            };
+        });
+    });
+
+    const renderTask = (task) => (
+        <div className={`task-item ${task.isDone ? 'done' : ''}`} key={task.id || task.name}>
+            <div className="task-check">
+                {task.isDone && <span className="check-mark">✓</span>}
+            </div>
+            <div className="task-content">
+                <div className="task-name" style={{ textDecoration: task.isDone ? 'line-through' : 'none', color: task.isDone ? '#94A3B8' : 'inherit' }}>
+                    {task.name}
+                </div>
+                <div className="task-desc">{task.desc}</div>
+            </div>
+            {!task.isDone && (
+                <div className={`task-impact ${task.impact}`}>
+                    {task.impact.charAt(0).toUpperCase() + task.impact.slice(1)} Impact
+                </div>
+            )}
+            {task.isDone && <div className="task-status-label">DONE</div>}
+        </div>
+    );
+
     return (
         <div className="roadmap-container">
             {/* PAGE 1: COVER */}
@@ -27,22 +105,23 @@ export default function RoadmapView({ data, slug }) {
                 <div className="cover-main">
                     <div className="cover-label">Custom Growth Roadmap</div>
                     <h1 className="cover-title">
-                        30-Day Plan to <span>Dominate Google</span> in Your Market
+                        30-Day <span>Roadmap</span> to Dominate Google in Your Market
                     </h1>
                     <p className="cover-subtitle">
-                        A personalized roadmap for <span className="cover-company">{data.COMPANY_NAME}</span> to capture more high-value cleaning contracts through local search visibility.
+                        A personalized roadmap for <span className="cover-company">{data.COMPANY_NAME}</span> to capture more contract value through local search visibility.
                     </p>
                     {data.MISSION_STATEMENT && (
                         <div className="cover-mission" style={{
                             marginTop: '30px',
                             padding: '20px',
-                            backgroundColor: 'rgba(0, 112, 243, 0.05)',
+                            backgroundColor: 'rgba(59, 130, 246, 0.1)',
                             borderLeft: '4px solid #0070f3',
                             borderRadius: '0 8px 8px 0',
                             fontStyle: 'italic',
-                            color: '#333',
+                            color: '#fff',
                             fontSize: '1.1rem',
-                            lineHeight: '1.6'
+                            lineHeight: '1.6',
+                            backdropFilter: 'blur(10px)'
                         }}>
                             "{data.MISSION_STATEMENT}"
                         </div>
@@ -180,43 +259,12 @@ export default function RoadmapView({ data, slug }) {
                     <div className="week-header">
                         <div className="week-number">W1</div>
                         <div className="week-info">
-                            <h3>Foundation & Quick Wins</h3>
-                            <p>Days 1–7 - Fix the basics that are killing your rankings</p>
+                            <h3>{roadmapData.W1.title}</h3>
+                            <p>{roadmapData.W1.subtitle}</p>
                         </div>
                     </div>
                     <div className="week-tasks">
-                        <div className="task-item">
-                            <div className="task-check"></div>
-                            <div className="task-content">
-                                <div className="task-name">Optimize Google Business Profile</div>
-                                <div className="task-desc">Complete all fields: services, areas, hours, attributes. Add commercial cleaning-specific categories.</div>
-                            </div>
-                            <div className="task-impact high">High Impact</div>
-                        </div>
-                        <div className="task-item">
-                            <div className="task-check"></div>
-                            <div className="task-content">
-                                <div className="task-name">Upload 10+ Professional Photos</div>
-                                <div className="task-desc">Before/after shots, team photos, equipment. Businesses with 100+ photos get 520% more calls.</div>
-                            </div>
-                            <div className="task-impact high">High Impact</div>
-                        </div>
-                        <div className="task-item">
-                            <div className="task-check"></div>
-                            <div className="task-content">
-                                <div className="task-name">Respond to All Existing Reviews</div>
-                                <div className="task-desc">Reply to every review (positive and negative) within 48 hours. Google rewards engagement.</div>
-                            </div>
-                            <div className="task-impact medium">Medium Impact</div>
-                        </div>
-                        <div className="task-item">
-                            <div className="task-check"></div>
-                            <div className="task-content">
-                                <div className="task-name">Fix NAP Consistency</div>
-                                <div className="task-desc">Ensure your Name, Address, Phone are identical across Google, Yelp, Facebook, and all directories.</div>
-                            </div>
-                            <div className="task-impact high">High Impact</div>
-                        </div>
+                        {roadmapData.W1.tasks.map(renderTask)}
                     </div>
                 </div>
 
@@ -225,35 +273,12 @@ export default function RoadmapView({ data, slug }) {
                     <div className="week-header">
                         <div className="week-number">W2</div>
                         <div className="week-info">
-                            <h3>Content & Review Engine</h3>
-                            <p>Days 8–14 - Build the systems that compound over time</p>
+                            <h3>{roadmapData.W2.title}</h3>
+                            <p>{roadmapData.W2.subtitle}</p>
                         </div>
                     </div>
                     <div className="week-tasks">
-                        <div className="task-item">
-                            <div className="task-check"></div>
-                            <div className="task-content">
-                                <div className="task-name">Launch a Review Request System</div>
-                                <div className="task-desc">Automate review requests after every completed job. Target: 5-10 new reviews per month minimum.</div>
-                            </div>
-                            <div className="task-impact high">High Impact</div>
-                        </div>
-                        <div className="task-item">
-                            <div className="task-check"></div>
-                            <div className="task-content">
-                                <div className="task-name">Start Publishing Weekly Google Posts</div>
-                                <div className="task-desc">Share tips, before/afters, testimonials. 3-4 posts per week signals an active business to Google.</div>
-                            </div>
-                            <div className="task-impact high">High Impact</div>
-                        </div>
-                        <div className="task-item">
-                            <div className="task-check"></div>
-                            <div className="task-content">
-                                <div className="task-name">Add Service-Area Pages to Website</div>
-                                <div className="task-desc">Create dedicated pages for each city/neighborhood you serve. Targets long-tail local keywords.</div>
-                            </div>
-                            <div className="task-impact medium">Medium Impact</div>
-                        </div>
+                        {roadmapData.W2.tasks.map(renderTask)}
                     </div>
                 </div>
             </div>
@@ -270,35 +295,12 @@ export default function RoadmapView({ data, slug }) {
                     <div className="week-header">
                         <div className="week-number">W3</div>
                         <div className="week-info">
-                            <h3>AI Search & Multi-Platform Visibility</h3>
-                            <p>Days 15–21 - Get found where your competitors aren&apos;t looking yet</p>
+                            <h3>{roadmapData.W3.title}</h3>
+                            <p>{roadmapData.W3.subtitle}</p>
                         </div>
                     </div>
                     <div className="week-tasks">
-                        <div className="task-item">
-                            <div className="task-check"></div>
-                            <div className="task-content">
-                                <div className="task-name">Optimize for AI Search Platforms</div>
-                                <div className="task-desc">Structure your website and GBP so ChatGPT, Gemini, and Perplexity recommend your business.</div>
-                            </div>
-                            <div className="task-impact high">High Impact</div>
-                        </div>
-                        <div className="task-item">
-                            <div className="task-check"></div>
-                            <div className="task-content">
-                                <div className="task-name">Build Citation Network</div>
-                                <div className="task-desc">Submit to 40+ high-authority directories (BBB, Angi, Thumbtack, industry-specific).</div>
-                            </div>
-                            <div className="task-impact medium">Medium Impact</div>
-                        </div>
-                        <div className="task-item">
-                            <div className="task-check"></div>
-                            <div className="task-content">
-                                <div className="task-name">Add Schema Markup to Website</div>
-                                <div className="task-desc">Add LocalBusiness structured data so search engines understand your services, areas, and reviews.</div>
-                            </div>
-                            <div className="task-impact medium">Medium Impact</div>
-                        </div>
+                        {roadmapData.W3.tasks.map(renderTask)}
                     </div>
                 </div>
 
@@ -307,53 +309,30 @@ export default function RoadmapView({ data, slug }) {
                     <div className="week-header">
                         <div className="week-number">W4</div>
                         <div className="week-info">
-                            <h3>Measure, Optimize & Scale</h3>
-                            <p>Days 22–30 - Lock in your gains and plan for month 2</p>
+                            <h3>{roadmapData.W4.title}</h3>
+                            <p>{roadmapData.W4.subtitle}</p>
                         </div>
                     </div>
                     <div className="week-tasks">
-                        <div className="task-item">
-                            <div className="task-check"></div>
-                            <div className="task-content">
-                                <div className="task-name">Run a New Ranking Audit</div>
-                                <div className="task-desc">Compare your heatmap and keyword rankings to Day 1. Document improvements.</div>
-                            </div>
-                            <div className="task-impact medium">Medium Impact</div>
-                        </div>
-                        <div className="task-item">
-                            <div className="task-check"></div>
-                            <div className="task-content">
-                                <div className="task-name">Analyze Which Keywords Moved</div>
-                                <div className="task-desc">Double down on the keywords gaining traction. Identify new opportunities.</div>
-                            </div>
-                            <div className="task-impact high">High Impact</div>
-                        </div>
-                        <div className="task-item">
-                            <div className="task-check"></div>
-                            <div className="task-content">
-                                <div className="task-name">Set Up Ongoing Automation</div>
-                                <div className="task-desc">Automate posts, review monitoring, and reporting so your visibility compounds on autopilot.</div>
-                            </div>
-                            <div className="task-impact high">High Impact</div>
-                        </div>
+                        {roadmapData.W4.tasks.map(renderTask)}
                     </div>
                 </div>
 
                 {/* Expected Results */}
                 <div className="expected-results">
-                    <h3>📈 Expected Results After 30 Days</h3>
+                    <h3>📈 30-Day Growth Milestones</h3>
                     <div className="results-grid">
                         <div className="result-item">
-                            <div className="result-value">Top 10</div>
-                            <div className="result-label">Google Maps ranking for primary keywords</div>
+                            <div className="result-value">Visibility Index</div>
+                            <div className="result-label">Broadening your Map Pack "Green Zone" for local keywords</div>
                         </div>
                         <div className="result-item">
-                            <div className="result-value">5-10+</div>
-                            <div className="result-label">New inbound leads per month</div>
+                            <div className="result-value">Lead Pipeline</div>
+                            <div className="result-label">Establishing a predictable flow of inbound contract inquiries</div>
                         </div>
                         <div className="result-item">
-                            <div className="result-value">Visible</div>
-                            <div className="result-label">On AI search platforms for the first time</div>
+                            <div className="result-value">AI Footprint</div>
+                            <div className="result-label">Verified recommendation status across ChatGPT, Gemini, and Perplexity</div>
                         </div>
                     </div>
                 </div>

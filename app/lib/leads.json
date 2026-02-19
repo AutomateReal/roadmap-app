@@ -58,7 +58,7 @@
         "LAST_NAME": "Lurie",
         "COMPANY_NAME": "Crystal Purity",
         "GBP_SCORE": "38",
-        "REVIEW_COUNT": "1",
+        "REVIEW_COUNT": "6",
         "AI_VISIBILITY": "Not Found",
         "MAPS_RANK": "#15",
         "POST_COUNT": "0",
@@ -75,8 +75,31 @@
         "COMP3_RANK": "#3",
         "COMP3_POSTS": "6",
         "CITY": "Greater Orlando, Florida",
-        "HAS_SCREENSHOT": "",
-        "MISSION_STATEMENT": "We don’t sell cleaning, we offer FREEDOM! We know how to TRANSFORM your workplace into a center of exceptional efficiency."
+        "HAS_SCREENSHOT": "20260219143311",
+        "MISSION_STATEMENT": "We don't sell cleaning, we offer FREEDOM! We know how to TRANSFORM your workplace into a center of exceptional efficiency.",
+        "ROADMAP_OVERRIDE": {
+            "DONE_TASKS": [
+                "Optimize Google Business Profile",
+                "Respond to All Existing Reviews",
+                "Fix NAP Consistency",
+                "Start Publishing Weekly Google Posts",
+                "Add Service-Area Pages to Website",
+                "Add Schema Markup to Website"
+            ],
+            "TASK_OVERRIDES": {
+                "Build Citation Network": {
+                    "name": "Build Commercial Citation Network",
+                    "desc": "Submit to high-authority directories property managers use (e.g., industry-specific commercial FM portals, Chamber of Commerce, and B2B directories)."
+                },
+                "Launch a Review Request System": {
+                    "name": "Implement 'Case Study' Feedback Loop",
+                    "desc": "Since you have long-term contracts, focus on 1-2 deep video testimonials or high-value case studies per month instead of high-volume reviews."
+                },
+                "Upload 10+ Professional Photos": {
+                    "desc": "Showcase your unique brand concept and operational efficiency through curated professional images of your team and equipment."
+                }
+            }
+        }
     },
     "kian-price-kcp-cleans": {
         "FULL_NAME": "Kian Cole Price",
@@ -103,6 +126,33 @@
         "COMP3_POSTS": "0",
         "CITY": "Stockport, United Kingdom",
         "HAS_SCREENSHOT": "",
-        "MISSION_STATEMENT": "KNOWLEDGE . CLEANING . PERFECTION. We bring a specialized, data-driven approach to maintaining Stockport’s premier commercial and residential spaces."
+        "MISSION_STATEMENT": "KNOWLEDGE . CLEANING . PERFECTION. We bring a specialized, data-driven approach to maintaining Stockport\u00e2\u20ac\u2122s premier commercial and residential spaces."
+    },
+    "matt-warren-your-clean-freak": {
+        "FULL_NAME": "Matt Warren",
+        "EMAIL": "mattw@yourcleanfreak.com",
+        "FIRST_NAME": "Matt",
+        "LAST_NAME": "Warren",
+        "COMPANY_NAME": "Your Clean Freak",
+        "GBP_SCORE": "35",
+        "REVIEW_COUNT": "0",
+        "AI_VISIBILITY": "Not Found",
+        "MAPS_RANK": "#25+",
+        "POST_COUNT": "0",
+        "COMPETITOR_1": "Two Maids",
+        "COMP1_REVIEWS": "85",
+        "COMP1_RANK": "#1",
+        "COMP1_POSTS": "4",
+        "COMPETITOR_2": "Molly Maid",
+        "COMP2_REVIEWS": "62",
+        "COMP2_RANK": "#2",
+        "COMP2_POSTS": "2",
+        "COMPETITOR_3": "MaidPro",
+        "COMP3_REVIEWS": "45",
+        "COMP3_RANK": "#3",
+        "COMP3_POSTS": "0",
+        "CITY": "Chickamauga, GA",
+        "HAS_SCREENSHOT": "20260219145500",
+        "MISSION_STATEMENT": "We provide luxury residential and commercial cleaning and organizational services in Chickamauga, Ringgold, and Fort Oglethorpe, GA as well as Chattanooga, TN."
     }
 }

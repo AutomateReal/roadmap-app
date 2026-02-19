@@ -40,6 +40,7 @@ body {
   min-height: 100vh;
   position: relative;
 }
+
 .page:last-child {
   page-break-after: avoid;
 }
@@ -124,7 +125,7 @@ body {
   display: flex;
   gap: 40px;
   padding-top: 40px;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .cover-stat {
@@ -221,9 +222,17 @@ body {
   margin-bottom: 4px;
 }
 
-.score-card.danger .score-value { color: var(--danger); }
-.score-card.warning .score-value { color: var(--warning); }
-.score-card.success .score-value { color: var(--success); }
+.score-card.danger .score-value {
+  color: var(--danger);
+}
+
+.score-card.warning .score-value {
+  color: var(--warning);
+}
+
+.score-card.success .score-value {
+  color: var(--success);
+}
 
 .score-label {
   font-size: 13px;
@@ -305,9 +314,17 @@ body {
   margin-right: 6px;
 }
 
-.status-dot.red { background: var(--danger); }
-.status-dot.yellow { background: var(--warning); }
-.status-dot.green { background: var(--success); }
+.status-dot.red {
+  background: var(--danger);
+}
+
+.status-dot.yellow {
+  background: var(--warning);
+}
+
+.status-dot.green {
+  background: var(--success);
+}
 
 .key-finding {
   background: #FEF2F2;
@@ -402,6 +419,11 @@ body {
   border: 1px solid var(--gray-200);
 }
 
+.task-item.done {
+  opacity: 0.7;
+  background: var(--gray-100);
+}
+
 .task-check {
   width: 20px;
   height: 20px;
@@ -409,6 +431,28 @@ body {
   border-radius: 4px;
   flex-shrink: 0;
   margin-top: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task-item.done .task-check {
+  background: var(--success);
+  border-color: var(--success);
+}
+
+.check-mark {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.task-status-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--success);
+  margin-top: 4px;
 }
 
 .task-content {
@@ -555,8 +599,13 @@ body {
 }
 
 /* Utility */
-.text-accent { color: var(--accent); }
-.font-bold { font-weight: 700; }
+.text-accent {
+  color: var(--accent);
+}
+
+.font-bold {
+  font-weight: 700;
+}
 
 @media print {
   .page {
