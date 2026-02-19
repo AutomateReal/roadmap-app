@@ -77,5 +77,32 @@
         "CITY": "Greater Orlando, Florida",
         "HAS_SCREENSHOT": "",
         "MISSION_STATEMENT": "We don’t sell cleaning, we offer FREEDOM! We know how to TRANSFORM your workplace into a center of exceptional efficiency."
+    },
+    "kian-price-kcp-cleans": {
+        "FULL_NAME": "Kian Cole Price",
+        "EMAIL": "",
+        "FIRST_NAME": "Kian",
+        "LAST_NAME": "Price",
+        "COMPANY_NAME": "KCP Cleans",
+        "GBP_SCORE": "32",
+        "REVIEW_COUNT": "1",
+        "AI_VISIBILITY": "Not Found",
+        "MAPS_RANK": "#22",
+        "POST_COUNT": "0",
+        "COMPETITOR_1": "Kingsmaid Commercial Cleaning",
+        "COMP1_REVIEWS": "179",
+        "COMP1_RANK": "#1",
+        "COMP1_POSTS": "8",
+        "COMPETITOR_2": "Elite Cleaning",
+        "COMP2_REVIEWS": "45",
+        "COMP2_RANK": "#3",
+        "COMP2_POSTS": "2",
+        "COMPETITOR_3": "Core Commercial Cleaning",
+        "COMP3_REVIEWS": "28",
+        "COMP3_RANK": "#4",
+        "COMP3_POSTS": "0",
+        "CITY": "Stockport, United Kingdom",
+        "HAS_SCREENSHOT": "",
+        "MISSION_STATEMENT": "KNOWLEDGE . CLEANING . PERFECTION. We bring a specialized, data-driven approach to maintaining Stockport’s premier commercial and residential spaces."
     }
 }
