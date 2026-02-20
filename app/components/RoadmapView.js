@@ -1,19 +1,19 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
 
 export default function RoadmapView({ data, slug }) {
-    const searchParams = useSearchParams();
-
     // Optional: Scroll to top on load or handle interactions
     useEffect(() => {
-        const isPreview = searchParams.get('preview') === 'true';
-        const wasInternal = typeof window !== 'undefined' && localStorage.getItem('isInternal') === 'true';
+        if (typeof window === 'undefined') return;
+
+        const params = new URLSearchParams(window.location.search);
+        const isPreview = params.get('preview') === 'true';
+        const wasInternal = localStorage.getItem('isInternal') === 'true';
 
         const isInternal = isPreview || wasInternal;
 
-        if (isPreview && typeof window !== 'undefined') {
+        if (isPreview) {
             localStorage.setItem('isInternal', 'true');
         }
 
@@ -23,7 +23,7 @@ export default function RoadmapView({ data, slug }) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ slug, data, isInternal })
         }).catch(err => console.error('GHL Tracking failed:', err));
-    }, [slug, data, searchParams]);
+    }, [slug, data]);
 
     const DEFAULT_TASKS = {
         W1: {
