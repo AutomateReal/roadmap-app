@@ -3,7 +3,12 @@ import { NextResponse } from 'next/server';
 export async function POST(request) {
     try {
         const body = await request.json();
-        const { slug, data } = body;
+        const { slug, data, isInternal } = body;
+
+        if (isInternal) {
+            console.log(`[Tracking] Internal visit detected for slug: ${slug}. Skipping GHL notification.`);
+            return NextResponse.json({ success: true, message: 'Internal visit skipped' });
+        }
 
         const webhookUrl = process.env.GHL_WEBHOOK_URL;
 
