@@ -181,5 +181,32 @@
         "CITY": "Newark, New Jersey",
         "HAS_SCREENSHOT": "",
         "MISSION_STATEMENT": "Helping you enjoy life by eliminating tedious cleaning chores! Specialized in residential & commercial cleaning, window cleaning, and solar panel cleaning for Essex County NJ."
+    },
+    "james-ayers-clean-sweep": {
+        "FULL_NAME": "James Ayers",
+        "EMAIL": "cleansweepremovalllc@gmail.com",
+        "FIRST_NAME": "James",
+        "LAST_NAME": "Ayers",
+        "COMPANY_NAME": "Clean Sweep Delivery & Removal LLC",
+        "GBP_SCORE": "32",
+        "REVIEW_COUNT": "45",
+        "AI_VISIBILITY": "Not Found",
+        "MAPS_RANK": "#12",
+        "POST_COUNT": "0",
+        "COMPETITOR_1": "Molly Maid of Greater Kansas City",
+        "COMP1_REVIEWS": "250",
+        "COMP1_RANK": "#1",
+        "COMP1_POSTS": "4",
+        "COMPETITOR_2": "The Maids of Kansas City",
+        "COMP2_REVIEWS": "180",
+        "COMP2_RANK": "#2",
+        "COMP2_POSTS": "2",
+        "COMPETITOR_3": "Ready Cleaning Services LLC",
+        "COMP3_REVIEWS": "236",
+        "COMP3_RANK": "#3",
+        "COMP3_POSTS": "1",
+        "CITY": "Kansas City, MO",
+        "HAS_SCREENSHOT": "",
+        "MISSION_STATEMENT": "Your Trusted Partner in Hauling & Junk Removal, dedicated to providing stress-free decluttering and specialized cleaning services. We handle the heavy lifting with professionalism, care, and efficiency."
     }
 }
