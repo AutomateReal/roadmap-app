@@ -235,5 +235,32 @@
         "CITY": "Hoboken, New Jersey",
         "HAS_SCREENSHOT": "20260220143334",
         "MISSION_STATEMENT": "Partnering with Facility Managers to maintain controlled environments in commercial and medical facilities through specialized, data-driven maintenance solutions."
+    },
+    "ramiro-gaitan-rtg-building-services": {
+        "FULL_NAME": "Ramiro Gaitan",
+        "EMAIL": "Ramiro@RTGBuildingServices.com",
+        "FIRST_NAME": "Ramiro",
+        "LAST_NAME": "Gaitan",
+        "COMPANY_NAME": "RTG Building Services, Inc.",
+        "GBP_SCORE": "48",
+        "REVIEW_COUNT": "17",
+        "AI_VISIBILITY": "Not Found",
+        "MAPS_RANK": "#12",
+        "POST_COUNT": "0",
+        "COMPETITOR_1": "Cano Complete Cleaning",
+        "COMP1_REVIEWS": "137",
+        "COMP1_RANK": "#1",
+        "COMP1_POSTS": "6",
+        "COMPETITOR_2": "ServiceMaster Commercial Clean",
+        "COMP2_REVIEWS": "85",
+        "COMP2_RANK": "#3",
+        "COMP2_POSTS": "2",
+        "COMPETITOR_3": "Stratus Building Solutions",
+        "COMP3_REVIEWS": "42",
+        "COMP3_RANK": "#5",
+        "COMP3_POSTS": "0",
+        "CITY": "Omaha, Nebraska",
+        "HAS_SCREENSHOT": "20260220160033",
+        "MISSION_STATEMENT": "To deliver the best quality in every project that we are assigned to work on while offering cost-effectiveness for the community of Omaha, NE and surrounding Areas."
     }
 }
